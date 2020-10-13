@@ -1,0 +1,12 @@
+.KeypadBtn {
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+}
+
+#KeypadDiv {
+    border: 2px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    width: 180px
+}

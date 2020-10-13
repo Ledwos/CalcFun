@@ -3,11 +3,17 @@ import Keypad from '../Keypad/Keypad';
 import './Calc.css';
 
 const Calc = () => {
-    const [cFace, setcFace] = useState('');
+    const [cFace, setcFace] = useState('0');
 
     const handleClick = (e) => {
-        let nuValue = cFace + e.target.innerHTML;
-        setcFace(nuValue);
+        if (cFace == '0' & e.target.innerHTML == '.') {
+            setcFace(cFace + e.target.innerHTML);
+        } else if (cFace == '0') {
+            setcFace(e.target.innerHTML);
+        } else {
+            let nuValue = cFace + e.target.innerHTML;
+            setcFace(nuValue);
+        };
     };
 
     const handleOp = (e) => {
@@ -20,12 +26,30 @@ const Calc = () => {
         }
     };
 
+    const handleCE = (e) => {
+        if (cFace.includes(' ')) {
+            let space = cFace.lastIndexOf(' ');
+            let nuValue = cFace.slice(0, space);
+            setcFace(nuValue);
+        } else {
+            setcFace('0');
+        };
+    };
+
+    const handleC = () => {
+        setcFace('0');
+    };
+
+    const handleCalc = () => {
+        
+    }
+
     return (
         <div>
             <div id='cFace'>
                 {cFace}
             </div>
-            <Keypad handleClick={handleClick} handleOp={handleOp} />
+            <Keypad handleClick={handleClick} handleOp={handleOp} handleCE={handleCE} handleC={handleC}/>
         </div>
     );
 };

@@ -7,10 +7,10 @@ const Keypad = (props) => {
             <div className='KeypadBtn'>
                 
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleCE}>
                 CE
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleC}>
                 C
             </div>
             <div className='KeypadBtn' onClick={props.handleOp}>

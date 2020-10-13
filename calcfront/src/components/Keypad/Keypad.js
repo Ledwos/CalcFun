@@ -7,13 +7,13 @@ const Keypad = (props) => {
             <div className='KeypadBtn'>
                 
             </div>
-            <div className='KeypadBtn' onClick={props.handleCE}>
+            <div className='KeypadBtn KeypadC' onClick={props.handleCE}>
                 CE
             </div>
-            <div className='KeypadBtn' onClick={props.handleC}>
+            <div className='KeypadBtn KeypadC' onClick={props.handleC}>
                 C
             </div>
-            <div className='KeypadBtn' onClick={props.handleOp}>
+            <div className='KeypadBtn KeypadOp' onClick={props.handleOp}>
                 +
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -25,7 +25,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 9
             </div>
-            <div className='KeypadBtn' onClick={props.handleOp}>
+            <div className='KeypadBtn KeypadOp' onClick={props.handleOp}>
                 -
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -37,7 +37,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 6
             </div>
-            <div className='KeypadBtn' onClick={props.handleOp}>
+            <div className='KeypadBtn KeypadOp' onClick={props.handleOp}>
                 x
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -49,7 +49,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 3
             </div>
-            <div className='KeypadBtn' onClick={props.handleOp}>
+            <div className='KeypadBtn KeypadOp' onClick={props.handleOp}>
                 /
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -58,10 +58,10 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 0
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            {/* <div className='KeypadBtn' onClick={props.handleClick}>
                 
-            </div>
-            <div className='KeypadBtn' onClick={props.handleCalc}>
+            </div> */}
+            <div className='KeypadBtn KeypadEql' onClick={props.handleCalc}>
                 =
             </div>
         </div>

@@ -1,5 +1,17 @@
 #cFace {
-    border: 2px solid red;
-    width: 180px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 178px;
     height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 24px;
+}
+
+#cBody {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 8px;
 }

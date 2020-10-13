@@ -47,7 +47,7 @@ const Calc = () => {
     };
 
     return (
-        <div>
+        <div id='cBody'>
             <div id='cFace'>
                 {cFace}
             </div>

@@ -61,7 +61,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleCalc}>
                 =
             </div>
         </div>

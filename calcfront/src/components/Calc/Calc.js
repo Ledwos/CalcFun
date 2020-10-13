@@ -6,9 +6,9 @@ const Calc = () => {
     const [cFace, setcFace] = useState('0');
 
     const handleClick = (e) => {
-        if (cFace == '0' & e.target.innerHTML == '.') {
+        if (cFace === '0' & e.target.innerHTML === '.') {
             setcFace(cFace + e.target.innerHTML);
-        } else if (cFace == '0') {
+        } else if (cFace === '0') {
             setcFace(e.target.innerHTML);
         } else {
             let nuValue = cFace + e.target.innerHTML;
@@ -26,8 +26,9 @@ const Calc = () => {
         }
     };
 
-    const handleCE = (e) => {
-        if (cFace.includes(' ')) {
+    const handleCE = () => {
+        if (cFace.indexOf(' ') >= 0) {
+            console.log('called');
             let space = cFace.lastIndexOf(' ');
             let nuValue = cFace.slice(0, space);
             setcFace(nuValue);
@@ -41,15 +42,16 @@ const Calc = () => {
     };
 
     const handleCalc = () => {
-        
-    }
+        let clean = cFace.replace('x', '*')
+        setcFace(eval(clean));
+    };
 
     return (
         <div>
             <div id='cFace'>
                 {cFace}
             </div>
-            <Keypad handleClick={handleClick} handleOp={handleOp} handleCE={handleCE} handleC={handleC}/>
+            <Keypad handleClick={handleClick} handleOp={handleOp} handleCE={handleCE} handleC={handleC} handleCalc={handleCalc}/>
         </div>
     );
 };

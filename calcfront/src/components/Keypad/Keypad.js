@@ -13,7 +13,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 C
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleOp}>
                 +
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -25,7 +25,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 9
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleOp}>
                 -
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -37,7 +37,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 6
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleOp}>
                 x
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>
@@ -49,7 +49,7 @@ const Keypad = (props) => {
             <div className='KeypadBtn' onClick={props.handleClick}>
                 3
             </div>
-            <div className='KeypadBtn' onClick={props.handleClick}>
+            <div className='KeypadBtn' onClick={props.handleOp}>
                 /
             </div>
             <div className='KeypadBtn' onClick={props.handleClick}>

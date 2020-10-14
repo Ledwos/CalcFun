@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
 // Rendering a component
@@ -123,4 +123,39 @@ describe('SearchVariants', () => {
 
 // toBeNull, toBeInTheDocument etc. are part of an
 // extra package already set up when using create-react-app
+
+
+// Tests
+
+describe('Calc interface', () => {
+  test('initial screen text is zero', () => {
+    render(<App />);
+    let face = document.querySelector('#cFace');
+    expect(face.innerHTML).toBe('0');
+  });
+  
+  // Fire event
+  test('update screen text on button click', async () => {
+    render(<App />);
+    let face = document.querySelector('#cFace');
+    expect(face.innerHTML).toBe('0');
+    fireEvent.click(screen.getByText('1'));
+    expect(await face.innerHTML).toBe('1');
+  });
+
+  test('calculates answer', async () => {
+    render(<App />);
+    // initial
+    let face = document.querySelector('#cFace');
+    expect(face.innerHTML).toBe('0');
+    // enter query
+    fireEvent.click(screen.getByText('6'));
+    fireEvent.click(screen.getByText('x'));
+    fireEvent.click(screen.getByText('4'));
+    expect(await face.innerHTML).toBe('6 x 4');
+    // run handleEql
+    fireEvent.click(screen.getByText('='));
+    expect(await face.innerHTML).toBe('24');
+  });
+});
 

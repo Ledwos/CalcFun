@@ -48,8 +48,8 @@ describe('Element selector 2', () => {
     render(<App />)
 
     screen.getByRole('heading');
-  })
-})
+  });
+});
 
 // neat thing about getByRole is if the provided
 // role isn't available, it will print out a list
@@ -66,4 +66,61 @@ describe('Element selector 2', () => {
 // attribute in the source code's HTML
 // ∴ stick with getByRole/Text where you can to
 // select rendered elements with RTL
+
+// Search Variants
+
+// As well as different search types, there are also
+// different search variants:
+// Instead of getBy you can also use queryBy / findBy
+
+// Why?
+// getBy does not check for elements that shouldn't
+// be there and ends up throwing an error before
+// the assertion could be made.
+// In this case, it is useful to switch getBy for
+// queryBy
+
+describe('SearchVariants', () => {
+  test('using queryBy', () => {
+    render(<App />);
+
+    expect(screen.queryByText(/no fun/)).toBeNull();
+  });
+});
+
+// Long story short, when asserting that an element
+// isn't there, use queryBy instead of getBy
+
+// findBy is used for asynchronous elements.
+// To test a component over the period of its
+// first render to its second render due to a resolved
+// promise, we must write an async test to wait for
+// the promise to resolve asynchronously.
+
+// example: awaiting login fetch details to come through
+
+// test('renders name', async () => {
+//   render(<App />)
+//   expect(screen.queryByText(/Username Box/)).toBeNull();
+//   expect(await screen.findByText(/Username Box/)).toBeInTheDocument();
+// });
+
+// assert that the username is not present on first render,
+// followed by an assertion to confirm it's there
+// once the promise is resolved.
+// can confirm this visually by using screen.debug()
+// after each assertion
+
+// Multiple elements
+// to get all elements that match a given criteria,
+// simply add 'All' to the search variant:
+
+// - getAllBy
+// - queryAllBy
+// - findAllBy
+
+// Assertive functions
+
+// toBeNull, toBeInTheDocument etc. are part of an
+// extra package already set up when using create-react-app
 

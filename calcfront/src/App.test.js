@@ -148,6 +148,9 @@ describe('Calc interface', () => {
     // initial
     let face = document.querySelector('#cFace');
     expect(face.innerHTML).toBe('0');
+    // pressing '=' before anything else
+    fireEvent.click(screen.getByText('='));
+    expect(await face.innerHTML).toBe('0');
     // enter query
     fireEvent.click(screen.getByText('6'));
     fireEvent.click(screen.getByText('x'));
@@ -157,5 +160,73 @@ describe('Calc interface', () => {
     fireEvent.click(screen.getByText('='));
     expect(await face.innerHTML).toBe('24');
   });
+
+  test('C button', async () => {
+    render(<App />);
+    let face = document.querySelector('#cFace');
+    expect(face.innerHTML).toBe('0');
+    // Press C only
+    fireEvent.click(screen.getByText('C'));
+    expect(await face.innerHTML).toBe('0');
+    // Clear after input change
+    fireEvent.click(screen.getByText('8'));
+    expect(await face.innerHTML).toBe('8');
+    fireEvent.click(screen.getByText('C'));
+    expect(await face.innerHTML).toBe('0');
+    // Clear after handleEql
+    fireEvent.click(screen.getByText('8'));
+    fireEvent.click(screen.getByText('+'));
+    fireEvent.click(screen.getByText('8'));
+    expect(await face.innerHTML).toBe('8 + 8');
+    fireEvent.click(screen.getByText('C'));
+    expect(await face.innerHTML).toBe('0');
+  });
+
+  test('CE button', async () => {
+    render(<App />);
+    let face = document.querySelector('#cFace');
+    expect(face.innerHTML).toBe('0');
+    // Press CE only
+    fireEvent.click(screen.getByText('CE'));
+    expect(await face.innerHTML).toBe('0');
+    
+    // Clear face one elment at a time
+    // single element
+    fireEvent.click(screen.getByText('8'));
+    expect(await face.innerHTML).toBe('8');
+    fireEvent.click(screen.getByText('CE'));
+    expect(await face.innerHTML).toBe('0');
+    
+    // multiple elements
+    fireEvent.click(screen.getByText('1'));
+    fireEvent.click(screen.getByText('.'));
+    fireEvent.click(screen.getByText('5'));
+    fireEvent.click(screen.getByText('x'));
+    fireEvent.click(screen.getByText('4'));
+    expect(await face.innerHTML).toBe('1.5 x 4');
+    // remove first element (4)
+    fireEvent.click(screen.getByText('CE'));
+    expect(await face.innerHTML).toBe('1.5 x');
+    // remove second element (x)
+    fireEvent.click(screen.getByText('CE'));
+    expect(await face.innerHTML).toBe('1.5');
+    // remove final element (1.5);
+    fireEvent.click(screen.getByText('CE'));
+    expect(await face.innerHTML).toBe('0');
+
+    // after handleEql
+    fireEvent.click(screen.getByText('6'));
+    fireEvent.click(screen.getByText('x'));
+    fireEvent.click(screen.getByText('4'));
+    expect(await face.innerHTML).toBe('6 x 4');
+    // run handleEql
+    fireEvent.click(screen.getByText('='));
+    expect(await face.innerHTML).toBe('24');
+    // click CE
+    fireEvent.click(screen.getByText('CE'));
+    expect(await face.innerHTML).toBe('0');
+
+    // ERROR HERE ^^^, stupid CE....
+  })
 });
 

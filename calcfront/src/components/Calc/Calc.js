@@ -42,8 +42,10 @@ const Calc = () => {
     };
 
     const handleCalc = () => {
-        let clean = cFace.replace('x', '*')
-        setcFace(eval(clean));
+        if (cFace !== '0') {
+            let clean = cFace.replace('x', '*')
+            setcFace(eval(clean));
+        };
     };
 
     return (

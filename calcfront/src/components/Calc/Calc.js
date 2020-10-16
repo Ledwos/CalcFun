@@ -27,10 +27,12 @@ const Calc = () => {
     };
 
     const handleCE = () => {
+        // make sure cFace is string
         if (cFace.indexOf(' ') >= 0) {
-            console.log('called');
+            console.log(typeof cFace);
             let space = cFace.lastIndexOf(' ');
             let nuValue = cFace.slice(0, space);
+            console.log(nuValue);
             setcFace(nuValue);
         } else {
             setcFace('0');
@@ -44,7 +46,8 @@ const Calc = () => {
     const handleCalc = () => {
         if (cFace !== '0') {
             let clean = cFace.replace('x', '*')
-            setcFace(eval(clean));
+            let value = JSON.stringify(eval(clean));
+            setcFace(value);
         };
     };
 

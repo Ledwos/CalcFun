@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Keypad.css';
 
 const Keypad = (props) => {
+
+    useEffect(() => {
+        document.addEventListener('keydown', logKey);
+
+        function logKey(e) {
+            console.log(e.keyCode);
+        };
+    }, []);
+
     return (
         <div id='KeypadDiv'>
             <div className='KeypadBtn'>

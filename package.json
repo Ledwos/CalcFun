@@ -1,0 +1,24 @@
+{
+  "name": "CalcFun",
+  "version": "1.0.0",
+  "description": "Just as the name suggests, this is a calculator and coding is fun!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ledwos/CalcFun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ledwos/CalcFun/issues"
+  },
+  "homepage": "https://github.com/Ledwos/CalcFun#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
